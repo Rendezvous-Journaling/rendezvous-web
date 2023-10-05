@@ -1,36 +1,26 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# rendezvous-web
 
-First, run the development server:
+## Overview
+Rendezvous is a unique and user-centric application designed to facilitate intentional and stress-free connections among friends. By seamlessly integrating the practice of journaling with thought-provoking prompts, Rendezvous empowers users to reflect on their experiences and share meaningful insights with their social circles.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Personalized Prompts:** Rendezvous generates thoughtfully crafted prompts on a every other day, inspiring users to reflect on various aspects of their lives.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Weekly Reflections:** Users can respond to prompts throughout the week, capturing moments, thoughts, and gratitude. The platform curates these responses into a weekly digest.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Curated Newsletters:** The collected responses are transformed into personalized newsletters, creating a unique narrative of the user's week.
 
-## Learn More
+**Selective Sharing:** Rendezvous enables users to share their compiled newsletters with selected groups, fostering a sense of connection with friends and loved ones.
 
-To learn more about Next.js, take a look at the following resources:
+### Benefits
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Intentional Connection:** Rendezvous goes beyond traditional social media updates, encouraging users to engage intentionally with their personal narratives.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Low-Pressure Environment:** By promoting weekly reflections, Rendezvous alleviates the pressure of constant updates, creating a more relaxed and authentic sharing experience.
 
-## Deploy on Vercel
+**Meaningful Social Circles:** The selective sharing feature allows users to curate their audience, fostering deeper connections within specific groups.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Overall, Rendezvous redefines digital interaction, offering a platform where users can authentically share, connect, and curate their personal stories in a meaningful way.
