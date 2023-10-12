@@ -1,20 +1,11 @@
-import styles from './page.module.css'
-
+import { MyNavbar } from './components/navbar/MyNavbar'
+import { Prompt } from './components/prompt/Prompt'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-       
-      </div>
-
-      <div className={styles.center}>
-        
-      </div>
-
-      <div className={styles.grid}>
-        
-      </div>
+    <main>
+      <MyNavbar/>
+      <Prompt/>
     </main>
   )
 }
