@@ -1,0 +1,13 @@
+.nav{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbarBrand{
+    color: #4D724D;
+}
+
+.navbarLink{
+    color: #4D724D;
+}
+
