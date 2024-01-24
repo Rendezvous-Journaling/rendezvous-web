@@ -47,7 +47,7 @@ export const UserPoolApi = {
 
         } catch(error){
             console.error("Error in signing user up", error);
-            return error.message;
+            return error;
         }
         
     }
