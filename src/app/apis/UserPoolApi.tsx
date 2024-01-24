@@ -1,6 +1,8 @@
 import { CognitoIdentityClient, ListIdentityPoolsCommand } from "@aws-sdk/client-cognito-identity";
 import { CognitoIdentityProviderClient, SignUpCommand } from "@aws-sdk/client-cognito-identity-provider";
 
+const client = new CognitoIdentityProviderClient({region: "us-west-1"});
+
 export const UserPoolApi = {
 
     
@@ -18,7 +20,6 @@ export const UserPoolApi = {
         given_name: string;
 
     }) => {
-        const client = new CognitoIdentityProviderClient({region: "us-west-1"});
 
         const command = new SignUpCommand({
             ClientId: clientId,
@@ -40,14 +41,14 @@ export const UserPoolApi = {
 
             if(response){
                 console.log(response);
+                return response;
             }
 
 
         } catch(error){
             console.error("Error in signing user up", error);
+            return error.message;
         }
-            
-
         
     }
 

@@ -1,0 +1,13 @@
+.nav{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.personalInfo{
+    color: #4D724D;
+    /* background-color: #4D724D; */
+}
+
+.navbarLink{
+    color: #4D724D;
+}
