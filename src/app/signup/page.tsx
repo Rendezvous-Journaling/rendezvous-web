@@ -76,7 +76,7 @@ export default function Page() {
 
       <Container fluid>
         <div className="text-center">
-          <h1 className="fs-3 fw-bold py-2">Need an account? Let's create one here.</h1>
+          <h1 className="fs-3 fw-bold py-2">Need an account? Lets create one here.</h1>
           <p className="py-2">Already have an account? <Link href="/signin">Sign in here</Link></p>
         </div>
         <form className="reg-form d-flex justify-content-center align-items-center" name="regForm" method="post" onSubmit={handleSignUp}>
