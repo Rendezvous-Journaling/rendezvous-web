@@ -6,10 +6,15 @@ import Link from "next/link";
 import { FormEvent } from "react";
 
 import styles from './Signup.module.css';
+import { useRouter } from "next/navigation";
+
+
 
 
  
 export default function Page() {
+
+  const router = useRouter();
 
   const createUser:  (
     givenName: string,
@@ -36,6 +41,12 @@ export default function Page() {
 
     const response = await UserPoolApi.signUpUser(userCredentials);
     alert(response);
+
+    router.push("signup/verify");
+
+    
+
+  
 
   };
 
@@ -65,123 +76,124 @@ export default function Page() {
 
       <Container fluid>
         <div className="text-center">
-          <h1>Sign Up</h1>
-          <p>Already have an account? <Link href="/signin">Sign in here</Link></p>
+          <h1 className="fs-3 fw-bold py-2">Need an account? Let's create one here.</h1>
+          <p className="py-2">Already have an account? <Link href="/signin">Sign in here</Link></p>
         </div>
-        <form className="reg-form" name="regForm" method="post" onSubmit={handleSignUp}>
+        <form className="reg-form d-flex justify-content-center align-items-center" name="regForm" method="post" onSubmit={handleSignUp}>
 
-        <Row className="d-flex justify-content-center">
-         
-          <Col className={`${styles.personalInfo}`}>
-            <h2 className="text-center">Personal Info</h2>
-            <div className="form-floating mb-3">
-              <input required
-                className="form-control"
-                id="fname"
-                type="text"
-                name="fname"
-                placeholder="First Name"
-              />
-              <label className="form-label" htmlFor="fname">First Name</label>
-            </div>
-          
-            <div className="form-floating mb-3">
-              <input required
-                className="form-control"
-                id="lname"
-                type="text"
-                name="lname"
-                placeholder="Last Name"
-              />
-              <label className="form-label" htmlFor="lname">Last Name</label>                  
-            </div>
-                        
-            <div className="form-floating mb-3">
-              <input required
-                className="form-control"
-                id="bday"
-                type="text"
-                name="bday"
-                placeholder="1/1/2000"
-              />
-              <label className="form-label" htmlFor="bday">Birthday</label>              
-            </div>
+          <Row>
+
+            <Col className={`${styles.personalInfo}`}>
+              <Row>
+                <Col>
+                  <div className="form-floating mb-3">
+                    <input required
+                      className="form-control"
+                      id="fname"
+                      type="text"
+                      name="fname"
+                      placeholder="First Name"
+                    />
+                    <label className="form-label" htmlFor="fname">First Name</label>
+                  </div>
+
+                  <div className="form-floating mb-3">
+                    <input required
+                      className="form-control"
+                      id="bday"
+                      type="date"
+                      name="bday"
+                      placeholder="1/1/2000"
+                    />
+                <label className="form-label" htmlFor="bday">Birthday</label>  
 
 
-            
-            <div className="form-floating mb-3">
-              <input required
-                className="form-control"
-                id="gender"
-                type="text"
-                name="gender"
-                placeholder="Male"
-              />
-              <label className="form-label" htmlFor="email">Gender</label>              
-            </div>
+              </div>
+                
+                </Col>
 
-            
-            <div className="form-floating mb-3">
-              <input required
-                className="form-control"
-                id="picture"
-                type="text"
-                name="picture"
-                placeholder="Picture"
-              />
-              <label className="form-label" htmlFor="email">Picture</label>
-            </div>
-          </Col>
+                <Col>
+                  <div className="form-floating mb-3">
+                    <input required
+                      className="form-control"
+                      id="lname"
+                      type="text"
+                      name="lname"
+                      placeholder="Last Name"
+                    />
+                    <label className="form-label" htmlFor="lname">Last Name</label>                  
+                  </div>
+                
+                  <div className="form-floating mb-3">
+                    <input required
+                      className="form-control"
+                      id="gender"
+                      type="text"
+                      name="gender"
+                      placeholder="Male"
+                    />
+                    <label className="form-label" htmlFor="email">Gender</label>              
+                  </div>
 
+                </Col>
+              </Row>
+                      
 
-          <Col>
-            <h2 className="text-center">Account Credentials</h2>
-            <div className="form-floating mb-3">
-              <input required
-                className="form-control"
-                id="uname"
-                type="text"
-                name="uname"
-                placeholder="Username"
-              />
-              <label className="form-label" htmlFor="uname">Username</label>
-
-            </div>
-
-            <div className="form-floating mb-3">
-              <input required
-                className="form-control"
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Email"
-              />
-              <label className="form-label" htmlFor="email">Email</label>
-            </div>
-
-            <div className="form-floating mb-3">
-              <input required
-                className="form-control"
-                id="pwd"
-                type="password"
-                name="pwd"
-                placeholder="Password"
-              />
-              <label className="form-label" htmlFor="password">Password</label>
-            </div>
-
-            <div className="d-flex justify-content-center align-items-center py-5">
-              <input className="py-2 px-5" type="submit" value="Create Account"/>
-            </div>
-
-          </Col>
+              
+              <div className="form-floating mb-3">
+                <input required
+                  className="form-control"
+                  id="picture"
+                  type="file"
+                  name="picture"
+                  placeholder="Picture"
+                />
+                <label className="form-label" htmlFor="email">Picture</label>
+              </div>
 
 
+              {/* <h2 className="text-center">Account Credentials</h2> */}
+              <div className="form-floating mb-3">
+                <input required
+                  className="form-control"
+                  id="uname"
+                  type="text"
+                  name="uname"
+                  placeholder="Username"
+                />
+                <label className="form-label" htmlFor="uname">Username</label>
 
-        </Row>
+              </div>
 
+              <div className="form-floating mb-3">
+                <input required
+                  className="form-control"
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                />
+                <label className="form-label" htmlFor="email">Email</label>
+              </div>
 
+              <div className="form-floating mb-3">
+                <input required
+                  className="form-control"
+                  id="pwd"
+                  type="password"
+                  name="pwd"
+                  placeholder="Password"
+                />
+                <label className="form-label" htmlFor="password">Password</label>
+              </div>
 
+              <div className="d-flex justify-content-center align-items-center py-5">
+                <input className="fw-bold py-2 px-5" type="submit" value="Create Account"/>
+              </div>
+
+            </Col>
+
+          </Row>
         </form>
       </Container>
       
