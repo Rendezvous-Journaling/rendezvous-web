@@ -42,7 +42,7 @@ export default function Page() {
     const response = await UserPoolApi.signUpUser(userCredentials);
     alert(response);
 
-    router.push("signup/verify");
+    router.push('signup/verify');
 
     
 
