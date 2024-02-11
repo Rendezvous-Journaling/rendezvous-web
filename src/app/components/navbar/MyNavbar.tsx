@@ -26,8 +26,8 @@ export const MyNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
             <Nav.Link href="/" className={`${styles.navbarLink} px-4 `}>INFO</Nav.Link>
-            <Nav.Link href={isSignedIn ? "/" : "/signup"} className={`${styles.navbarLink} px-4`}>{isSignedIn ? "HOME" : "SIGNUP"}</Nav.Link>
-            <Nav.Link href={isSignedIn ? "/" : "/signin"} className={`${styles.navbarLink} px-4`}>{isSignedIn ? "LOGOUT" : "SIGNIN"}</Nav.Link>
+            <Nav.Link href={isSignedIn ? "/" : "/signup"} className={`${styles.navbarLink} px-4`}>{isSignedIn ? "HOME" : "SIGN UP"}</Nav.Link>
+            <Nav.Link href={isSignedIn ? "/" : "/signin"} className={`${styles.navbarLink} px-4`}>{isSignedIn ? "LOGOUT" : "SIGN IN"}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
