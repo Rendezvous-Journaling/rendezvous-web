@@ -10,8 +10,6 @@ import { useRouter } from "next/navigation";
 
 
 
-
- 
 export default function Page() {
 
   const router = useRouter();
@@ -39,10 +37,11 @@ export default function Page() {
       given_name: givenName
     }
 
-    const response = await UserPoolApi.signUpUser(userCredentials);
-    alert(response);
 
-    router.push('signup/verify');
+    const response  = await UserPoolApi.signUpUser(userCredentials);
+    alert(response?.message);
+
+    router.push('/login');
 
     
 
@@ -72,7 +71,6 @@ export default function Page() {
 
   return (
     <Container>
-      <MyNavbar/>
 
       <Container fluid>
         <div className="text-center">
