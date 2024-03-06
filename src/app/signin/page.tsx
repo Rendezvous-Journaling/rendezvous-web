@@ -3,9 +3,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import { UserPoolApi } from "../apis/UserPoolApi";
 import Link from "next/link";
 import { FormEvent } from "react";
+import { useRouter } from "next/navigation";
+
 
  
 export default function Page() {
+
+  const router = useRouter();
 
   const initiateAuth = async (username : string, password: string) => {
 
@@ -16,6 +20,11 @@ export default function Page() {
 
     const response = await UserPoolApi.signInUser(credentials);
     alert(response?.message);
+
+    if(response?.response.$metadata.httpStatusCode == 200){
+      router.push('/dashboard');
+    }
+    
    
   }
 

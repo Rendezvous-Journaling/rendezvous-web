@@ -12,11 +12,12 @@ import styles from './MyNavbar.module.css'
 
 export const MyNavbar = () => {
 
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(!!sessionStorage.getItem('idToken'));
 
-  useEffect( () => {
-    sessionStorage.getItem('token') ? setIsSignedIn(true) : setIsSignedIn(false);
-  },[])
+  const handleSignout = () => {
+    sessionStorage.removeItem('idToken');
+    setIsSignedIn(false);
+  }
 
   return (
     <Navbar expand="lg" className="py-4">
@@ -26,8 +27,13 @@ export const MyNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
             <Nav.Link href="/" className={`${styles.navbarLink} px-4 `}>INFO</Nav.Link>
-            <Nav.Link href={isSignedIn ? "/" : "/signup"} className={`${styles.navbarLink} px-4`}>{isSignedIn ? "HOME" : "SIGN UP"}</Nav.Link>
-            <Nav.Link href={isSignedIn ? "/" : "/signin"} className={`${styles.navbarLink} px-4`}>{isSignedIn ? "LOGOUT" : "SIGN IN"}</Nav.Link>
+            <Nav.Link href={isSignedIn ? "/dashboard" : "/signup"} className={`${styles.navbarLink} px-4`}>
+              {isSignedIn ? "DASHBOARD" : "SIGN UP"}
+            </Nav.Link>
+            
+            <Nav.Link href={isSignedIn ? "/" : "/signin"} className={`${styles.navbarLink} px-4`} onClick={isSignedIn ? handleSignout : ()=>{} }>
+              {isSignedIn ? "LOGOUT" : "SIGN IN"}
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

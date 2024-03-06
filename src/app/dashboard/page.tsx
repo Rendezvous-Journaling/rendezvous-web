@@ -6,19 +6,17 @@ import { Prompt} from "../types/PromptTypes";
 
 export default function Page() {
 
-  const [prompts, setPrompts] = useState<Prompt[]>([]);
+  const [prompt, setPrompt] = useState<Prompt>();
 
   useEffect(() => {
 
-   PromptApi.getAllPrompt().then(data => setPrompts(data));
+   PromptApi.getRandomPrompt().then(data => setPrompt(data));
   }, [])
 
 
   return (
-    <div>
-    {prompts ? prompts.map((prompt: Prompt) => (
-      <li key={prompt.id}>{prompt.content}</li>
-    )): null}
+    <div className="d-flex justify-content-center align-items-center">
+    {prompt ? <>{prompt.content}</> : <></>}
     </div>
   )
 }
