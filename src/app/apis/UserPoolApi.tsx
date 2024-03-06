@@ -20,7 +20,6 @@ export const UserPoolApi = {
 
     }) => {
         console.log(process.env.CLIENT_ID);
-        console.log(process.env);
         const command = new SignUpCommand({
             ClientId: clientId,
             Username: username,
@@ -69,7 +68,6 @@ export const UserPoolApi = {
         password: string
     }) => {
         console.log(process.env.CLIENT_ID);
-        console.log(process.env);
         const input: InitiateAuthCommandInput = {
             AuthFlow: "USER_PASSWORD_AUTH",
             AuthParameters: {
