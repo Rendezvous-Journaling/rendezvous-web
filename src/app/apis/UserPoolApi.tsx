@@ -1,12 +1,13 @@
-import { CognitoIdentityClient, ListIdentityPoolsCommand, NotAuthorizedException } from "@aws-sdk/client-cognito-identity";
+import 'dotenv/config'
 import { CognitoIdentityProviderClient, InitiateAuthCommand, InitiateAuthCommandInput, SignUpCommand } from "@aws-sdk/client-cognito-identity-provider";
 import {  SignInResponse, SignUpResponse } from "../types/UserPoolTypes";
 
 const client = new CognitoIdentityProviderClient({region: "us-west-1"});
+const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
+
 export const UserPoolApi = {
 
-    signUpUser: async ({clientId, username, password, email, zoneInfo, birthdate, gender, picture, family_name, given_name}: {
-        clientId: string;
+    signUpUser: async ({username, password, email, zoneInfo, birthdate, gender, picture, family_name, given_name}: {
         username: string;
         password: string;
         email:string;
@@ -18,7 +19,8 @@ export const UserPoolApi = {
         given_name: string;
 
     }) => {
-
+        console.log(process.env.CLIENT_ID);
+        console.log(process.env);
         const command = new SignUpCommand({
             ClientId: clientId,
             Username: username,
@@ -66,15 +68,15 @@ export const UserPoolApi = {
         username: string,
         password: string
     }) => {
-
+        console.log(process.env.CLIENT_ID);
+        console.log(process.env);
         const input: InitiateAuthCommandInput = {
-        
             AuthFlow: "USER_PASSWORD_AUTH",
             AuthParameters: {
                 USERNAME: username,
                 PASSWORD: password,
             },
-            ClientId: "4tpt5v7leo5nma2qg5fjn3739f",
+            ClientId: clientId,
         };
         
         const command = new InitiateAuthCommand(input);
@@ -90,7 +92,7 @@ export const UserPoolApi = {
                     response: response
                 }
 
-                sessionStorage.setItem("token", response.AuthenticationResult?.AccessToken as string);
+                sessionStorage.setItem("idToken", response.AuthenticationResult?.IdToken as string);
 
                 return signInResponse;
             }

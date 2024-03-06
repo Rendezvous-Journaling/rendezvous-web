@@ -1,7 +1,6 @@
 "use client"
 import { Col, Container, Row } from "react-bootstrap";
 import { UserPoolApi } from "../apis/UserPoolApi";
-import { MyNavbar } from "../components/navbar/MyNavbar";
 import Link from "next/link";
 import { FormEvent } from "react";
 
@@ -25,7 +24,6 @@ export default function Page() {
     picture: string,) => void = async (givenName, familyName, username, email, password, birthday, gender, picture) => {
 
     const userCredentials = {
-      clientId: "4tpt5v7leo5nma2qg5fjn3739f",
       username: username,
       password: password,
       email: email,
@@ -149,8 +147,6 @@ export default function Page() {
                 <label className="form-label" htmlFor="email">Picture</label>
               </div>
 
-
-              {/* <h2 className="text-center">Account Credentials</h2> */}
               <div className="form-floating mb-3">
                 <input required
                   className="form-control"
