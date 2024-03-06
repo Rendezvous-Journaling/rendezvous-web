@@ -1,8 +1,9 @@
+import 'dotenv/config'
 import { CognitoIdentityProviderClient, InitiateAuthCommand, InitiateAuthCommandInput, SignUpCommand } from "@aws-sdk/client-cognito-identity-provider";
 import {  SignInResponse, SignUpResponse } from "../types/UserPoolTypes";
 
 const client = new CognitoIdentityProviderClient({region: "us-west-1"});
-const clientId = process.env.CLIENT_ID;
+const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
 
 export const UserPoolApi = {
 
@@ -19,6 +20,7 @@ export const UserPoolApi = {
 
     }) => {
         console.log(process.env.CLIENT_ID);
+        console.log(process.env);
         const command = new SignUpCommand({
             ClientId: clientId,
             Username: username,
@@ -67,6 +69,7 @@ export const UserPoolApi = {
         password: string
     }) => {
         console.log(process.env.CLIENT_ID);
+        console.log(process.env);
         const input: InitiateAuthCommandInput = {
             AuthFlow: "USER_PASSWORD_AUTH",
             AuthParameters: {
@@ -89,7 +92,7 @@ export const UserPoolApi = {
                     response: response
                 }
 
-                sessionStorage.setItem("token", response.AuthenticationResult?.AccessToken as string);
+                sessionStorage.setItem("idToken", response.AuthenticationResult?.IdToken as string);
 
                 return signInResponse;
             }
