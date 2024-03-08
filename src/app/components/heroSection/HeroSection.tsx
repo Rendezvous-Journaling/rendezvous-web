@@ -2,8 +2,14 @@
 
 import { Button, Container, Image, Col, Row } from 'react-bootstrap';
 import styles from './HeroSection.module.css' 
+import { useContext } from 'react';
+import { UserContext, UserContextInterface } from '@/app/context/UserProvider';
+import Link from 'next/link';
+import React from 'react';
 
 export const HeroSection = () => {
+
+    const { idToken } = React.useContext(UserContext) as UserContextInterface;
 
     return(
         <div className={`${styles.heroBackground}`}>
@@ -34,7 +40,11 @@ export const HeroSection = () => {
                             </Container>
 
                             <p className='fst-italic fw-light'>Ready to Connect?</p>
-                            <Button className={`${styles.primaryButton} p-3  btn-secondary fw-bold`} href='/signup'>Join Rendezvous Now</Button>
+                            <Button className={`${styles.primaryButton} p-3  btn-secondary fw-bold`}>
+                                <Link className={`${styles.buttonLink}`} href={idToken ? "/dashboard" : "/signup"}>
+                                    {idToken ? "Dashboard" : "Join Now"}
+                                </Link>
+                            </Button>
                         </Col>
                     </Row>
 
