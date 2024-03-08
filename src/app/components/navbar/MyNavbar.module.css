@@ -1,11 +1,11 @@
 .nav{
     display: flex;
     justify-content: flex-end;
+    background-color: #F5F5F5;;
 }
 
 .navbarBrand{
     color: #4D724D;
-    /* color: #ffffff; */
 }
 
 .navbarLink{

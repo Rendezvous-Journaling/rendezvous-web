@@ -1,10 +1,10 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+import { HeroSection } from "./components/heroSection/HeroSection";
 
 export default function Home() {
 
   return (
     <main>
-      
+      <HeroSection/>
     </main>
   )
 }

@@ -44,7 +44,7 @@ export default function Page() {
       <Container fluid>
         <div className="text-center">
           <h1 className="fs-3 fw-bold py-2">Let's get you logged in.</h1>
-          <p className="py-2">Don't have an account? <Link href="/signin">Sign up here</Link></p>
+          <p className="py-2">Don't have an account? <Link href="/signup">Sign up here</Link></p>
         </div>
         <form className="reg-form d-flex justify-content-center align-items-center" name="regForm" method="post" onSubmit={handleSignIn}>
 

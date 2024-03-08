@@ -22,11 +22,15 @@ export const MyNavbar = () => {
   return (
     <Navbar expand="lg" className="py-4">
     <Container>
-        <Navbar.Brand href="/" className={`${styles.navbarBrand} fw-bold`}>rendezvous.</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <span className={`${styles.navbarBrand} fw-bold`}>rendezvous.</span>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
-            <Nav.Link href="/" className={`${styles.navbarLink} px-4 `}>INFO</Nav.Link>
+            <Nav.Link href="/">
+              <span className={`${styles.navbarLink} px-4 `}>INFO</span>
+            </Nav.Link>
             <Nav.Link href={isSignedIn ? "/dashboard" : "/signup"} className={`${styles.navbarLink} px-4`}>
               {isSignedIn ? "DASHBOARD" : "SIGN UP"}
             </Nav.Link>
