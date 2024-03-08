@@ -22,12 +22,12 @@ const PromptApi = {
         }
     },
 
-    getRandomPrompt : async() => {
+    getRandomPrompt : async(idToken : string | undefined) => {
         try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/prompt`, {
                 headers: {
                     "Content-Type":  "application/json",
-                    "Authorization": `Bearer ${sessionStorage.getItem("idToken")}`
+                    "Authorization": `Bearer ${idToken}`
                 }
             })
 
