@@ -2,14 +2,19 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { UserPoolApi } from "../apis/UserPoolApi";
 import Link from "next/link";
-import { FormEvent } from "react";
+import { FormEvent, useContext } from "react";
 import { useRouter } from "next/navigation";
+import { UserContext, UserContextInterface } from "../context/UserProvider";
+import React from "react";
+
 
 
  
 export default function Page() {
 
   const router = useRouter();
+
+  const { addIdToken } = React.useContext(UserContext) as UserContextInterface;
 
   const initiateAuth = async (username : string, password: string) => {
 
@@ -22,6 +27,7 @@ export default function Page() {
     alert(response?.message);
 
     if(response?.response.$metadata.httpStatusCode == 200){
+      addIdToken(response.response.AuthenticationResult?.IdToken);
       router.push('/dashboard');
     }
     

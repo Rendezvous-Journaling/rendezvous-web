@@ -8,36 +8,44 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 import styles from './MyNavbar.module.css'
-
+import { UserContext, UserContextInterface } from "@/app/context/UserProvider";
 
 export const MyNavbar = () => {
 
-  const [isSignedIn, setIsSignedIn] = useState(!!sessionStorage.getItem('idToken'));
+  const { idToken, deleteIdToken } = React.useContext(UserContext) as UserContextInterface;
+  const [isSignedIn, setIsSignedIn] = useState(!!idToken);
+
+  useEffect(() => {
+    idToken ? setIsSignedIn(true) : setIsSignedIn(false);
+    console.log(idToken);
+  },[idToken] )
 
   const handleSignout = () => {
-    sessionStorage.removeItem('idToken');
-    setIsSignedIn(false);
+    deleteIdToken();
   }
 
   return (
     <Navbar expand="lg" className="py-4">
     <Container>
-        <Navbar.Brand href="/">
-          <span className={`${styles.navbarBrand} fw-bold`}>rendezvous.</span>
+        <Navbar.Brand>
+          <Link href={"/"} className={`${styles.navbarBrand} fw-bold`}>rendezvous.</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
-            <Nav.Link href="/">
-              <span className={`${styles.navbarLink} px-4 `}>INFO</span>
-            </Nav.Link>
-            <Nav.Link href={isSignedIn ? "/dashboard" : "/signup"} className={`${styles.navbarLink} px-4`}>
+          
+            <Link href={'/'} className={`${styles.navbarLink} px-4 `}>
+              INFO
+            </Link>
+     
+            <Link href={isSignedIn ? "/dashboard" : "/signup"} className={`${styles.navbarLink} px-4`}> 
               {isSignedIn ? "DASHBOARD" : "SIGN UP"}
-            </Nav.Link>
-            
-            <Nav.Link href={isSignedIn ? "/" : "/signin"} className={`${styles.navbarLink} px-4`} onClick={isSignedIn ? handleSignout : ()=>{} }>
+            </Link>
+          
+            <Link href={isSignedIn ? "/" : "/signin"} className={`${styles.navbarLink} px-4`} onClick={isSignedIn ? handleSignout : ()=>{} } > 
               {isSignedIn ? "LOGOUT" : "SIGN IN"}
-            </Nav.Link>
+            </Link>
+
           </Nav>
         </Navbar.Collapse>
       </Container>
