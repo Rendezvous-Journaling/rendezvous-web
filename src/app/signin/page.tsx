@@ -8,6 +8,7 @@ import { UserContext, UserContextInterface } from "../context/UserProvider";
 import React from "react";
 
 
+import styles from './signin.module.css'
 
  
 export default function Page() {
@@ -70,7 +71,7 @@ export default function Page() {
 
               </div>
 
-              <div className="form-floating mb-3">
+              <div className="form-floating">
                 <input required
                   className="form-control"
                   id="pwd"
@@ -81,8 +82,10 @@ export default function Page() {
                 <label className="form-label" htmlFor="password">Password</label>
               </div>
 
-              <div className="d-flex justify-content-center align-items-center py-5">
-                <input className="fw-bold py-2 px-5" type="submit" value="Sign In"/>
+              <p className={`fw-light text-muted`}>Forgot Password?</p>
+
+              <div className="d-flex justify-content-center align-items-center py-3">
+                <input className={`${styles.primaryButton} fw-bold py-2 px-5 w-100`} type="submit" value="Sign In"/>
               </div>
 
             </Col>

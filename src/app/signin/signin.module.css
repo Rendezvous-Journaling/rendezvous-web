@@ -1,17 +1,3 @@
-.nav{
-    display: flex;
-    justify-content: flex-end;
-}
-
-.personalInfo{
-    color: #4D724D;
-    /* background-color: #4D724D; */
-}
-
-.navbarLink{
-    color: #4D724D;
-}
-
 .primaryButton{
     background-color: #4D724D;
     border: #4D724D;
